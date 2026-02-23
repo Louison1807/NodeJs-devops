@@ -1,0 +1,48 @@
+# Node.js Docker ignore
+# Additional Docker ignores for Node.js projects
+*.log
+logs
+tmp
+temp
+node_repl_history
+.env.local
+.npmrc
+.yarn*
+.pnpm-store
+*.pem
+*.key
+
+# Node modules and debug logs
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment files
+.env
+.env.*.local
+
+# Build output
+dist
+build
+out
+.next
+.next/cache
+.cache
+.parcel-cache
+coverage
+*.tgz
+
+# IDE / OS files
+.vscode
+.idea
+.DS_Store
+Thumbs.db
+
+# Git and local configs
+.git
+.gitignore
+.dockerignore
+docker-compose.override.yml
+Dockerfile

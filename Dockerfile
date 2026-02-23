@@ -1,20 +1,19 @@
-# Use an official Node.js runtime as the base image
-FROM node:14
+FROM node:20-alpine
 
-# Set the working directory inside the container
+RUN groupadd --system appgroup && useradd --system --ingroup appgroup appuser
+
 WORKDIR /app
 
-# Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
-# Install the application dependencies
-RUN npm install
+Run npm ci --omit=dev
 
-# Copy the application source code to the working directory
 COPY . .
 
-# Expose the port that the application listens on
+RUN chown -R appuser:appgroup /app 
+
+USER appuser
+
 EXPOSE 3000
 
-# Start the application
-CMD ["node", "crud-rds-mysql-nodejs.js"]
+CMD ["node", "crud-rsds-mysql-nodejs.js"]

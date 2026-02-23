@@ -1,12 +1,12 @@
 const express = require('express');
-const mysql = require('mysql');
+const mysql = require('mysql2');
 
 // Create a connection pool
 const pool = mysql.createPool({
   connectionLimit: 10,
-  host: '',
-  user: '',
-  password: '',
+  host: 'mysql-container',
+  user: 'root',
+  password: 'root',
   database: 'mybooks',
 });
 
