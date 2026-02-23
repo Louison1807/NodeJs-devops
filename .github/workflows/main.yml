@@ -1,0 +1,24 @@
+name : Node JS exress ci cd pieline
+
+on:
+  push:
+    branches: main
+
+jobs:
+  builds:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Clone the repository on the runner
+        uses: actions/checkout@v6.0.2
+        
+      - name: Setup nodeJs
+        uses: actions/setup-node@v6.2.0
+        with:
+          node-version: 20
+
+      - name: Install depedencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm run test
