@@ -1,19 +1,17 @@
 FROM node:20-alpine
 
-RUN groupadd --system appgroup && useradd --system --ingroup appgroup appuser
-
 WORKDIR /app
 
 COPY package*.json ./
 
-Run npm ci --omit=dev
+RUN npm ci --omit=dev
 
 COPY . .
 
-RUN chown -R appuser:appgroup /app 
+RUN chown -R node:node /app 
 
-USER appuser
+USER node
 
 EXPOSE 3000
 
-CMD ["node", "crud-rsds-mysql-nodejs.js"]
+CMD ["node", "crud-rds-mysql-nodejs.js"]
